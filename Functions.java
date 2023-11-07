@@ -13,4 +13,34 @@ public class Functions {
 		Matcher m = p.matcher(s);
 		return m.matches();
 	}
+	public static void field (int[][] array, String symbol) {
+		String letter = "ABCDEFGHIJ";
+		for (int i = 0; i <= 10; i++){
+			for (int j = 0; j <= 10; j++) {
+				if (array[j][i] == 1) {
+					System.out.print("| " + symbol + " ");
+				}
+			    else if (j >= 1 && i == 0) {
+					System.out.print("| " + letter.charAt(j-1) + " ");
+				}
+				else if (j == 0 && i >= 1) {
+					if (i == 10) {
+						System.out.print("| " + i);
+					}
+					else {
+					System.out.print("| " + i + " ");
+					}
+					
+				}
+				else {
+					System.out.print("|   ");
+				}
+			}
+			System.out.println();
+			for (int k = 0; k <= 10; k++) {
+				System.out.print(" ---");
+			}
+			System.out.println();
+		}
+	}
 }
