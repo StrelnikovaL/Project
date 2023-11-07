@@ -13,11 +13,11 @@ public class Functions {
 		Matcher m = p.matcher(s);
 		return m.matches();
 	}
-	public static void field (int[][] array, String symbol) {
+	public static void field (int[][] array, String symbol, int designation) {
 		String letter = "ABCDEFGHIJ";
 		for (int i = 0; i <= 10; i++){
 			for (int j = 0; j <= 10; j++) {
-				if (array[j][i] == 1) {
+				if (array[j][i] == designation) {
 					System.out.print("| " + symbol + " ");
 				}
 			    else if (j >= 1 && i == 0) {
@@ -43,4 +43,5 @@ public class Functions {
 			System.out.println();
 		}
 	}
+	
 }
