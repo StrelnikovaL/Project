@@ -17,7 +17,7 @@ public class Functions {
 		String letter = "ABCDEFGHIJ";
 		for (int i = 0; i <= 10; i++){
 			for (int j = 0; j <= 10; j++) {
-				if (array[j][i] == designation) {
+				if (array[i][j] == designation) {
 					System.out.print("| " + symbol + " ");
 				}
 			    else if (j >= 1 && i == 0) {
