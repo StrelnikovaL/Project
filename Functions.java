@@ -43,5 +43,14 @@ public class Functions {
 			System.out.println();
 		}
 	}
+	public static int symbol(char c) {
+		String alf = "ABCDEFGHIJ";
+		for (int i = 0; i < alf.length(); i ++) {
+			if (alf.charAt(i) == c) {
+				return i+1;
+			}
+		}
+		return c;
+	}
 	
 }
