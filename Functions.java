@@ -13,6 +13,10 @@ public class Functions {
 		Matcher m = p.matcher(s);
 		return m.matches();
 	}
+	public static boolean there 
+	else if (coords [row][column] == 1) { //если на этом месте уже поставден корабль, мы это выводим
+						System.out.println("Already stand");
+						i--;
 	public static void field (int[][] array, String symbol, int designation) {
 		String letter = "ABCDEFGHIJ";
 		for (int i = 0; i <= 10; i++){
