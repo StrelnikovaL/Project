@@ -17,7 +17,7 @@ public class Seabattle {
 			// тут должен быть какой-то текст, что имя введено неверно
 		}
 		Scanner sc = new Scanner(System.in);
-		int [][] coords1 = fill_coords(SIZE_OF_FIELD, sc); // игрок 1 введите координаты
+		int [][] coords1 = fill_coords(SIZE_OF_FIELD, sc); // игрок 1 введите координаты - текст
 		int [][] coords2 = fill_coords(SIZE_OF_FIELD, sc);
 		
 		/*System.out.println(coords1.length);
@@ -32,24 +32,24 @@ public class Seabattle {
 		// теперь нужно написать сам ход игры, попадание/не попадание, передача хода и вывод поля
 		int c = 1;
 		while (true) {
-			if (end(coords1)) {
+			if (Functions.end(coords1)) {
 				System.out.println("игрок 2 победил!");
 				break;
 			}
-			if (end(coords2)) {
+			if (Functions.end(coords2)) {
 				System.out.println("игрок 1 победил!");
 				break;
 			}
 			if (c == 1) {
 				System.out.println("игрок 1, ваш ход: ");
 				String coord = sc.nextLine();
-				int column = symbol(coord.charAt(0));
+				int column = Functions.symbol(coord.charAt(0));
 				int row = 10;
 				if (coord.length() != 3) {
 					row = Integer.parseInt(String.valueOf(coord.charAt(1)));
 				}
-				System.out.println(column);
-				System.out.println(row);
+				//System.out.println(column);
+				//System.out.println(row);
 				if (coords2[row][column] == 2) { // попадание
 					c = 1;
 					coords2[row][column] = 1;
@@ -66,10 +66,10 @@ public class Seabattle {
 			else if (c == 0) {
 				System.out.println("игрок 2, ваш ход: ");
 				String coord = sc.nextLine();
-				int column = symbol(coord.charAt(0));
+				int column = Functions.symbol(coord.charAt(0));
 				int row = 10;
 				if (coord.length() != 3) {
-					row = symbol(coord.charAt(1));
+					row = Functions.symbol(coord.charAt(1));
 				}
 				if (coords1[row][column] == 2) { // попадание
 					c = 0;
