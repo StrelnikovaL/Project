@@ -9,7 +9,7 @@ public class Functions {
 		"игроки не видят расположение кораблей друг друга.");
 	}
 	public static boolean rightCoordinate(String s) {
-		Pattern p = Pattern.compile("[A-Z]([1-9]|10)([ ][A-Z]([1-9]|10)){0,3}");
+		Pattern p = Pattern.compile("[A-J]([1-9]|10)([ ][A-J]([1-9]|10)){0,3}");
 		Matcher m = p.matcher(s);
 		return m.matches();
 	}
