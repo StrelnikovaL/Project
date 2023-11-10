@@ -94,5 +94,18 @@ public class Functions {
 		return coords;
 		
 	}
+	public static boolean end(int [][] array) {
+		boolean flag = true;
+		for (int i = 0; i <array.length; i ++) {
+			for (int j = 0; j < array.length; j ++) {
+				if (array[i][j] == 2) {
+					flag = false;
+					break;
+				}
+			}
+		}
+		return flag;
+	}
+	
 	
 }
