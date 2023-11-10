@@ -56,5 +56,43 @@ public class Functions {
 		}
 		return c;
 	}
+	public static int[][] fill_coords(int SIZE_OF_FIELD, Scanner sc) {
+		int c1 = 4;
+		int c2 = 3;
+		int c3 = 2;
+		int c4 = 1;
+		int [][] coords = new int [SIZE_OF_FIELD+1][SIZE_OF_FIELD+1];
+		int i = 0;
+		while (i < 10) { // кол-во кораблей
+			String q = sc.nextLine();
+			String[] parts = q.split(" "); // считываем координаты, определяем, сколько палуб у корабля
+			if (parts.length == 4) {
+				c4 -= 1;
+			}
+			else if (parts.length == 3) {
+				c3 -= 1;
+			}
+			else if (parts.length == 2) {
+				c2 -= 1;
+			}
+			else if (parts.length == 1) {
+				c1 -= 1;
+			}
+			for (String x: parts) { // пробегаемся по координатам A1 A2 ... 
+				int column = symbol(x.charAt(0));
+				int row = 10;
+				if (x.length() != 3) {
+					row = Integer.parseInt(String.valueOf(x.charAt(1))); // преобразовать char в int
+				}
+				coords[row][column] = 2; // первый столбец и первую строку не трогаем
+				// проверка на правильность введения
+				// нужно каждую координату (буква + цифра) проверить на расстановку
+				// если допустимая - записать в массив координат
+			}
+			i ++;
+		}
+		return coords;
+		
+	}
 	
 }
