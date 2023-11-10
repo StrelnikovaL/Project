@@ -1,5 +1,6 @@
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.Scanner;
 public class Functions {
 	public static void hello() {
 		System.out.println("Добро пожаловать в игру Морской бой!");

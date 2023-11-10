@@ -2,7 +2,8 @@ import java.util.Scanner;
 public class Seabattle {
 	public static void main(String[] args) {
 		int SIZE_OF_FIELD = 10;
-		hello();
+		Scanner sc = new Scanner(System.in);
+		Functions.hello();
 		System.out.println("Чтобы начать игру, введите enter");
 		String line = sc.nextLine();
 		String name1 = "";
@@ -16,9 +17,8 @@ public class Seabattle {
 		else {
 			// тут должен быть какой-то текст, что имя введено неверно
 		}
-		Scanner sc = new Scanner(System.in);
-		int [][] coords1 = fill_coords(SIZE_OF_FIELD, sc); // игрок 1 введите координаты - текст
-		int [][] coords2 = fill_coords(SIZE_OF_FIELD, sc);
+		int [][] coords1 = Functions.fill_coords(SIZE_OF_FIELD, sc); // игрок 1 введите координаты - текст
+		int [][] coords2 = Functions.fill_coords(SIZE_OF_FIELD, sc);
 		
 		/*System.out.println(coords1.length);
 		System.out.println(coords2.length);
