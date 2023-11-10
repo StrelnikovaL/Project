@@ -66,6 +66,7 @@ public class Functions {
 		while (i < 10) { // кол-во кораблей
 			String q = sc.nextLine();
 			String[] parts = q.split(" "); // считываем координаты, определяем, сколько палуб у корабля
+			// где-то здесь должен быть вывод поля
 			if (parts.length == 4) {
 				c4 -= 1;
 			}

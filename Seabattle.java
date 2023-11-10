@@ -2,9 +2,24 @@ import java.util.Scanner;
 public class Seabattle {
 	public static void main(String[] args) {
 		int SIZE_OF_FIELD = 10;
+		hello();
+		System.out.println("Чтобы начать игру, введите enter");
+		String line = sc.nextLine();
+		String name1 = "";
+		String name2 = "";
+		if (line.equals("")) {
+			System.out.println("игрок 1, введите своё имя "); // тут должно быть имя игрока
+			name1 = sc.nextLine();
+			System.out.println("игрок 2, введите своё имя ");
+			name2 = sc.nextLine();
+		}
+		else {
+			// тут должен быть какой-то текст, что имя введено неверно
+		}
 		Scanner sc = new Scanner(System.in);
-		int [][] coords1 = fill_coords(SIZE_OF_FIELD, sc);
+		int [][] coords1 = fill_coords(SIZE_OF_FIELD, sc); // игрок 1 введите координаты
 		int [][] coords2 = fill_coords(SIZE_OF_FIELD, sc);
+		
 		/*System.out.println(coords1.length);
 		System.out.println(coords2.length);
 		for (int i = 0; i < 11; i ++) {
