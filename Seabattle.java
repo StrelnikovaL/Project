@@ -48,8 +48,6 @@ public class Seabattle {
 				if (coord.length() != 3) {
 					row = Integer.parseInt(String.valueOf(coord.charAt(1)));
 				}
-				//System.out.println(column);
-				//System.out.println(row);
 				if (coords2[row][column] == 2) { // попадание
 					c = 1;
 					coords2[row][column] = 1;
