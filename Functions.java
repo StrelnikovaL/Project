@@ -57,19 +57,21 @@ public class Functions {
 		}
 		return c;
 	}
-	public static int[][] fill_coords(int SIZE_OF_FIELD, Scanner sc) {
+	public static int[][] fill_coords(Scanner sc) {
 		int c1 = 4;
 		int c2 = 3;
 		int c3 = 2;
 		int c4 = 1;
-		int [][] coords = new int [SIZE_OF_FIELD+1][SIZE_OF_FIELD+1];
+		int [][] coords = new int [11][11];
 		int i = 0;
 		while (i < 10) { // кол-во кораблей
+			System.out.println("Введите координаты, куда вы хотите поставить корабль");
 			String q = sc.nextLine();
+			int right = 0;
 			int row = 0;
 			int column = 0;
 			while ( !Functions.rightCoordinate(q)) {
-			    System.out.println("Введенные данные не являются координатами. Введите координаты в форме [буква+цифра через пробелы]");
+			    System.out.println("Введённые данные не являются координатами. Введите координаты в формате \"Буква+цифра через пробелы\"");
 				q = sc.nextLine();
 			}
 			String[] parts = q.split(" "); // считываем координаты, определяем, сколько палуб у корабля
@@ -92,28 +94,29 @@ public class Functions {
 				if (x.length() != 3) {
 					row = Integer.parseInt(String.valueOf(x.charAt(1))); // преобразовать char в int
 				}
-				if (coords [row][column] == 2) { //если на этом месте уже поставден корабль, мы это выводим
-					System.out.println("Эта координата уже занята под другой корабль, введите новую кооординату");
+				if (coords [row][column] == 2 && parts.length == 1){
+					System.out.println ("Эта координата уже занята, выберите другую координату");
 					i--;
+					right = 1;
+					break;
 				}
 				else {
-					coords[row][column] = 2; // первый столбец и первую строку не трогаем
-						// проверка на правильность введения (сделано)
-						// проверка стоит уже такой корабль или нет (сделано)
-						// проверить, чтобы корабои стояли по горизонтали или по вертикали
-						//проверить, чтобы корабли не могли стоять рядом друг с другом
-						// если допустимая - записать в массив координат
-					Functions.field(coords,"X",2);
+					coords[row][column] = 2;
+					right = 0;
 				}
 			}
-			i ++;
+			if (right == 0) {
+				Functions.field(coords,"X",2);
+				System.out.println ("Корабль поставлен");
+			}
+			i++;
 		}
 		return coords;
 		
 	}
 	public static boolean end(int [][] array) {
 		boolean flag = true;
-		for (int i = 0; i <array.length; i ++) {
+		for (int i = 0; i < array.length; i ++) {
 			for (int j = 0; j < array.length; j ++) {
 				if (array[i][j] == 2) {
 					flag = false;

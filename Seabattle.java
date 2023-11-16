@@ -1,7 +1,6 @@
 import java.util.Scanner;
 public class Seabattle {
 	public static void main(String[] args) {
-		int SIZE_OF_FIELD = 10;
 		Scanner sc = new Scanner(System.in);
 		Functions.hello();
 		System.out.println("Чтобы начать игру, введите enter");
@@ -17,19 +16,17 @@ public class Seabattle {
 		else {
 			// тут должен быть какой-то текст, что имя введено неверно
 		}
-		int [][] coords1 = Functions.fill_coords(SIZE_OF_FIELD, sc); // игрок 1 введите координаты - текст
-		int [][] coords2 = Functions.fill_coords(SIZE_OF_FIELD, sc);
-		
-		/*System.out.println(coords1.length);
-		System.out.println(coords2.length);
-		for (int i = 0; i < 11; i ++) {
-			for (int j = 0; j <11; j ++) {
-				System.out.print(coords2[i][j]);
-				System.out.print(" ");
-			}
-			System.out.println();
-		}*/
-		// теперь нужно написать сам ход игры, попадание/не попадание, передача хода и вывод поля
+		System.out.println ();
+		System.out.println ("Начинается расстановка флота");
+		System.out.println ();
+		System.out.println(name1 + " сейчас расставляет корабли");
+		int [][] coords1 = Functions.fill_coords(sc); // игрок 1 введите координаты - текст
+		System.out.println (name1 + " расставил флот");
+		System.out.println ();
+		System.out.println(name2 + " сейчас расставляет корабли");
+		int [][] coords2 = Functions.fill_coords(sc);
+		System.out.println (name2 + "расставил флот");
+		System.out.println ();
 		int c = 1;
 		while (true) {
 			if (Functions.end(coords1)) {
@@ -43,6 +40,10 @@ public class Seabattle {
 			if (c == 1) {
 				System.out.println("игрок 1, ваш ход: ");
 				String coord = sc.nextLine();
+				while (!Functions.rightCoordinate(coord)) {
+					System.out.println("Введённые данные не являются координатами. Введите координаты в формате \"Буква+цифра через пробелы\"");
+					coord = sc.nextLine();
+				}
 				int column = Functions.symbol(coord.charAt(0));
 				int row = 10;
 				if (coord.length() != 3) {
@@ -64,6 +65,10 @@ public class Seabattle {
 			else if (c == 0) {
 				System.out.println("игрок 2, ваш ход: ");
 				String coord = sc.nextLine();
+				while (!Functions.rightCoordinate(coord)) {
+					System.out.println("Введённые данные не являются координатами. Введите координаты в формате \"Буква+цифра через пробелы\"");
+					coord = sc.nextLine();
+				}
 				int column = Functions.symbol(coord.charAt(0));
 				int row = 10;
 				if (coord.length() != 3) {
