@@ -3,7 +3,7 @@ public class Seabattle {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		Functions.hello();
-		System.out.println("Чтобы начать игру, введите enter");
+		System.out.println("Чтобы начать игру, введите Go");
 		String line = sc.nextLine();
 		String name1 = "";
 		String name2 = "";
@@ -52,12 +52,12 @@ public class Seabattle {
 				if (coords2[row][column] == 2) { // попадание
 					c = 1;
 					coords2[row][column] = 1;
-					Functions.field(coords2, "X", 1);
+					Functions.fieldPlay(coords2);
 				}
 				else {
 					c = 0;
 					coords2[row][column] = -1;
-					Functions.field(coords2, "O", -1);
+					Functions.fieldPlay(coords2);
 				}
 				
 				
@@ -72,17 +72,17 @@ public class Seabattle {
 				int column = Functions.symbol(coord.charAt(0));
 				int row = 10;
 				if (coord.length() != 3) {
-					row = Functions.symbol(coord.charAt(1));
+					row = Integer.parseInt(String.valueOf(coord.charAt(1)));
 				}
 				if (coords1[row][column] == 2) { // попадание
 					c = 0;
 					coords1[row][column] = 1;
-					Functions.field(coords1, "X", 1);
+					Functions.fieldPlay(coords1);
 				}
 				else {
 					c = 1;
 					coords1[row][column] = -1;
-					Functions.field(coords1, "O", -1);
+					Functions.fieldPlay(coords1);
 				}
 			}
 		}

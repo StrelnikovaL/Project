@@ -18,35 +18,98 @@ public class Functions {
 	else if (coords [row][column] == 1) { //если на этом месте уже поставден корабль, мы это выводим
 						System.out.println("Already stand");
 						i--;*/
-	public static void field (int[][] array, String symbol, int designation) {
-		String letter = "ABCDEFGHIJ";
-		for (int i = 0; i <= 10; i++){
-			for (int j = 0; j <= 10; j++) {
-				if (array[i][j] == designation) {
-					System.out.print("| " + symbol + " ");
-				}
-			    else if (j >= 1 && i == 0) {
-					System.out.print("| " + letter.charAt(j-1) + " ");
-				}
-				else if (j == 0 && i >= 1) {
-					if (i == 10) {
-						System.out.print("| " + i);
+	public static void fieldPlay (int[][] array) {
+		// мы должны поставить x там, где 1 и 0 там, где -1)
+			String letter = "ABCDEFGHIJ";
+			for (int i = 0; i <= 10; i++){
+				for (int j = 0; j <= 10; j++) {
+					if (array[i][j] == 1) {
+						System.out.print("| " + "X" + " ");
+					}
+					else if (array[i][j] == -1) {
+						System.out.print("| " + "O" + " ");
+					}
+					else if (j >= 1 && i == 0) {
+						System.out.print("| " + letter.charAt(j-1) + " ");
+					}
+					else if (j == 0 && i >= 1) {
+						if (i == 10) {
+							System.out.print("| " + i);
+						}
+						else {
+						System.out.print("| " + i + " ");
+						}
+						
 					}
 					else {
-					System.out.print("| " + i + " ");
+						System.out.print("|   ");
 					}
-					
 				}
-				else {
-					System.out.print("|   ");
+				System.out.println();
+				for (int k = 0; k <= 10; k++) {
+					System.out.print(" ---");
 				}
+				System.out.println();
 			}
-			System.out.println();
-			for (int k = 0; k <= 10; k++) {
-				System.out.print(" ---");
+	}
+	public static void fieldFill (int[][] array) {
+		// мы должны поставить x там, где 1 и 0 там, где -1)
+			String letter = "ABCDEFGHIJ";
+			for (int i = 0; i <= 10; i++){
+				for (int j = 0; j <= 10; j++) {
+					if (array[i][j] == 2) {
+						System.out.print("| " + "X" + " ");
+					}
+					else if (j >= 1 && i == 0) {
+						System.out.print("| " + letter.charAt(j-1) + " ");
+					}
+					else if (j == 0 && i >= 1) {
+						if (i == 10) {
+							System.out.print("| " + i);
+						}
+						else {
+						System.out.print("| " + i + " ");
+						}
+						
+					}
+					else {
+						System.out.print("|   ");
+					}
+				}
+				System.out.println();
+				for (int k = 0; k <= 10; k++) {
+					System.out.print(" ---");
+				}
+				System.out.println();
 			}
-			System.out.println();
-		}
+	}
+	public static void field (int[][] array) {
+		// мы должны поставить x там, где 1 и 0 там, где -1)
+			String letter = "ABCDEFGHIJ";
+			for (int i = 0; i <= 10; i++){
+				for (int j = 0; j <= 10; j++) {
+					if (j >= 1 && i == 0) {
+						System.out.print("| " + letter.charAt(j-1) + " ");
+					}
+					else if (j == 0 && i >= 1) {
+						if (i == 10) {
+							System.out.print("| " + i);
+						}
+						else {
+						System.out.print("| " + i + " ");
+						}
+						
+					}
+					else {
+						System.out.print("|   ");
+					}
+				}
+				System.out.println();
+				for (int k = 0; k <= 10; k++) {
+					System.out.print(" ---");
+				}
+				System.out.println();
+			}
 	}
 	public static int symbol(char c) {
 		String alf = "ABCDEFGHIJ";
@@ -64,7 +127,9 @@ public class Functions {
 		int c4 = 1;
 		int [][] coords = new int [11][11];
 		int i = 0;
+		Functions.field(coords);
 		while (i < 10) { // кол-во кораблей
+			System.out.println ();
 			System.out.println("Введите координаты, куда вы хотите поставить корабль");
 			String q = sc.nextLine();
 			int right = 0;
@@ -106,7 +171,7 @@ public class Functions {
 				}
 			}
 			if (right == 0) {
-				Functions.field(coords,"X",2);
+				Functions.fieldFill(coords);
 				System.out.println ("Корабль поставлен");
 			}
 			i++;
@@ -126,6 +191,5 @@ public class Functions {
 		}
 		return flag;
 	}
-	
 	
 }
