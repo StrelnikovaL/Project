@@ -84,7 +84,6 @@ public class Functions {
 			}
 	}
 	public static void field (int[][] array) {
-		// мы должны поставить x там, где 1 и 0 там, где -1)
 			String letter = "ABCDEFGHIJ";
 			for (int i = 0; i <= 10; i++){
 				for (int j = 0; j <= 10; j++) {

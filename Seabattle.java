@@ -39,6 +39,7 @@ public class Seabattle {
 			}
 			if (c == 1) {
 				System.out.println("игрок 1, ваш ход: ");
+				Functions.field();
 				String coord = sc.nextLine();
 				while (!Functions.rightCoordinate(coord)) {
 					System.out.println("Введённые данные не являются координатами. Введите координаты в формате \"Буква+цифра через пробелы\"");
